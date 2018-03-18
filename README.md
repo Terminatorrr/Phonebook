@@ -1,2 +1,2 @@
 # Phonebook
-simple programm for storing contacts 
+simple programm for storing contacts written with C
