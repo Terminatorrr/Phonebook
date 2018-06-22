@@ -74,6 +74,7 @@ string get_contact_data(int data_type)
             printf("Invalid %s!\n", data_types[data_type]);
         }
     } while (!is_valid);
+
     return data;
 }
 
@@ -174,7 +175,6 @@ void edit_contact(int position)
             {
                 printf("Invalid answer!\n");
             }
-
         } while (!is_valid);
 
         if (answer > 0)
