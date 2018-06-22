@@ -47,14 +47,18 @@
             "includePath": [
                 "${workspaceRoot}",
                 "C:/mingw/mingw32/i686-w64-mingw32/include",
-                "C:/mingw/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include"
+                "C:/mingw/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include",
+                "C:/mingw/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++",
+                "C:/mingw/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/tr1",
+                "C:/mingw/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "msvc-x64",
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "C:/mingw/mingw32/bin/gcc.exe",
             "browse": {
                 "path": [
                     "${workspaceRoot}"
