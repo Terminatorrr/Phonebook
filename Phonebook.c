@@ -27,7 +27,7 @@ int count = 0;
 
 int main(void)
 {
-    printf("Welcome to Phonebook!\n");
+    printf("\nWelcome to Phonebook!\n");
     while (true)
     {
         string data;
@@ -35,12 +35,12 @@ int main(void)
         bool is_valid;
         do
         {
-            data = get_string("Enter contact data: ");
+            data = get_string("\nEnter contact data: ");
             data_type = get_data_type(data);
             is_valid = is_data_valid(data, data_type);
             if (!is_valid)
             {
-                printf("Invalid %s!\n", data_types[data_type]);
+                printf("\nInvalid %s!\n", data_types[data_type]);
             }
 
         } while (!is_valid);
@@ -48,14 +48,14 @@ int main(void)
         int contact_index = find_contact_index(data, data_type);
         if (contact_index > -1)
         {
-            printf("Contact found:\n");
+            printf("\nContact found:\n");
             print_contact_info(contact_index);
             edit_contact(contact_index);
             continue;
         }
         else
         {
-            printf("%s not found. Creating new contact.\n", data);
+            printf("\n%s not found. Creating new contact.\n", data);
             start_add_contact(data, data_type);
         }
     }
@@ -67,11 +67,11 @@ string get_contact_data(int data_type)
     bool is_valid;
     do
     {
-        data = get_string("Enter %s: ", data_types[data_type]);
+        data = get_string("\nEnter %s: ", data_types[data_type]);
         is_valid = is_data_valid(data, data_type);
         if (!is_valid)
         {
-            printf("Invalid %s!\n", data_types[data_type]);
+            printf("\nInvalid %s!\n", data_types[data_type]);
         }
     } while (!is_valid);
 
@@ -133,7 +133,7 @@ bool is_phone_valid(string phone)
 
 void start_add_contact(string data, int data_type)
 {
-    string contact[] = {NULL, NULL};
+    string contact[number_of_data_types];
     contact[data_type] = data;
     add_contact(contact[0], contact[1]);
 }
@@ -152,7 +152,7 @@ void add_contact(string name, string phone)
     }
 
     count++;
-    printf("New contact created.\n");
+    printf("\nNew contact created.\n");
 }
 
 void edit_contact(int position)
@@ -163,17 +163,19 @@ void edit_contact(int position)
         bool is_valid;
         do
         {
-            printf("Do you want to edit something?");
+            printf("\nDo you want to edit something?\n");
             for (int i = 0; i < number_of_data_types; i++)
             {
-                printf("\n  %i = edit %s", i + 1, data_types[i]);
+                printf("  %i = edit %s\n", i + 1, data_types[i]);
             }
 
-            answer = get_int("\n  0 = nothing\n");
+            printf("  0 = nothing\n");
+
+            answer = get_int("\nPlease enter a number: ");
             is_valid = answer >= 0 && answer <= number_of_data_types;
             if (!is_valid)
             {
-                printf("Invalid answer!\n");
+                printf("\nInvalid answer!\n");
             }
         } while (!is_valid);
 
@@ -181,11 +183,11 @@ void edit_contact(int position)
         {
             int data_type = answer - 1;
             phonebook[position][data_type] = get_contact_data(data_type);
-            printf("Done!\n");
+            printf("\nDone!\n");
         }
         else
         {
-            printf("Editing finished!\n");
+            printf("\nEditing finished!\n");
             return;
         }
     }
