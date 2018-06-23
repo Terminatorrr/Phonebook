@@ -80,8 +80,14 @@ string get_contact_data(int data_type)
 
 int get_data_type(string data)
 {
-    // Houston, we have a problem...
-    return is_phone_valid(data) ? 1 : 0;
+    for(int i = 0; i < number_of_data_types; i++)
+    {
+        if (is_data_valid(data, i)) {
+            return i;
+        }
+    }
+
+    return -1;
 }
 
 bool is_data_valid(string data, int data_type)
