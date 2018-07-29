@@ -40,7 +40,7 @@ int main(void)
             is_valid = is_data_valid(data, data_type);
             if (!is_valid)
             {
-                printf("\nInvalid %s!\n", data_types[data_type]);
+                printf("\nInvalid data!\n");
             }
 
         } while (!is_valid);
@@ -103,7 +103,7 @@ bool is_data_valid(string data, int data_type)
 
 bool is_name_valid(string name)
 {
-    if (name == NULL || name == "")
+    if (name == NULL || name == '\000' || name == "")
     {
         return false;
     }
@@ -121,7 +121,7 @@ bool is_name_valid(string name)
 
 bool is_phone_valid(string phone)
 {
-    if (phone == NULL || phone == "" || strlen(phone) <= 10 || strlen(phone) >= 15 || phone[0] != '+')
+    if (phone == NULL || phone == "" || phone == '\000' || strlen(phone) <= 10 || strlen(phone) >= 15 || phone[0] != '+')
     {
         return false;
     }
